@@ -1,0 +1,18 @@
+<h1>Change boat name</h1>
+
+<%= form_for :boat, url: boat_path(@boat), method: :patch do |f| %>
+
+    <%= render 'shared/errors', main_object: @boat  %>
+
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name%>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+
+<% end %>
+
+<%= link_to 'Back', boats_path %>

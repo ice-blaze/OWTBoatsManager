@@ -1,0 +1,24 @@
+<h1>Listing boats</h1>
+
+<%= link_to 'New boat', new_boat_path(@boat) %>
+
+<table>
+  <tr>
+    <th>Boat Name</th>
+    <th>Goods</th>
+    <th colspan="3"></th>
+  </tr>
+
+  <% @boats.each do |boat| %>
+      <tr>
+        <td><%= boat.name %></td>
+        <td><%= 'goods...' %></td>
+        <td><%= link_to 'Show', boat_path(boat) %></td>
+        <td><%= link_to 'Edit', edit_boat_path(boat) %></td>
+        <td><%= link_to 'Destroy', boat_path(boat),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+</table>
+

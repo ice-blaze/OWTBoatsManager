@@ -1,0 +1,13 @@
+<%= form_for :boat, url: boats_path do |f| %>
+
+    <%= render 'shared/errors', main_object: @boat  %>
+
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>

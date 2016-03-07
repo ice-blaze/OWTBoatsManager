@@ -1,0 +1,29 @@
+<p>
+  <strong>Title:</strong>
+  <%= @boat.name %>
+</p>
+
+<h2>Goods</h2>
+<% @boat.goods.each do |good| %>
+    <p>
+      <%= good.name %>
+      <%= link_to 'Destroy', [good.boat, good],
+           method: :delete,
+           data: { confirm: 'Are you sure?' } %>
+    </p>
+
+<% end %>
+
+<h2>Add goods:</h2>
+<%= form_for([@boat, @boat.goods.build]) do |f| %>
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>
+
+<%= link_to 'Edit', edit_boat_path(@boat) %>
+<%= link_to 'Back', boats_path %>
