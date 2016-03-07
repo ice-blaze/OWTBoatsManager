@@ -1,13 +1,14 @@
+<h2>Create a new boat</h2>
 <%= form_for :boat, url: boats_path do |f| %>
 
     <%= render 'shared/errors', main_object: @boat  %>
 
-    <p>
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
-    </p>
+    <div class="form-inline">
+      <%= f.text_field :name, class: 'form-control', placeholder: 'boat name' %>
+      <%= f.submit class: 'btn btn-primary' %>
+    </div>
 
-    <p>
-      <%= f.submit %>
-    </p>
+
 <% end %>
+<br><br>
+<%= link_to 'Back', boats_path, class: 'btn btn-primary'%>

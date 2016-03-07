@@ -1,29 +1,40 @@
 <p>
-  <strong>Title:</strong>
-  <%= @boat.name %>
+  <strong>Boat name:</strong>
+  <%= @boat.name %>  <%= link_to 'Edit', edit_boat_path(@boat), class: 'btn btn-primary small btn-sm' %>
 </p>
 
-<h2>Goods</h2>
-<% @boat.goods.each do |good| %>
-    <p>
-      <%= good.name %>
-      <%= link_to 'Destroy', [good.boat, good],
-           method: :delete,
-           data: { confirm: 'Are you sure?' } %>
-    </p>
+<h3>Goods</h3>
+<table class="table">
+  <tr>
+    <th>Goods name</th>
+    <th></th>
+  </tr>
+  <% @boat.goods.each do |good| %>
+      <tr>
+        <td><%= good.name %></td>
+        <td>
+          <%= link_to 'Destroy', [good.boat, good],
+               method: :delete,
+               data: { confirm: 'Are you sure?' },
+              class: 'btn btn-danger btn-sm'
+          %>
+        </td>
+      </tr>
 
-<% end %>
+  <% end %>
 
-<h2>Add goods:</h2>
+</table>
+
+<h3>Add goods:</h3>
 <%= form_for([@boat, @boat.goods.build]) do |f| %>
-    <p>
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
-    </p>
-    <p>
-      <%= f.submit %>
-    </p>
-<% end %>
+    <div class="form-inline">
+      <%= f.text_field :name, class: 'form-control', placeholder: 'Good name'%>
+      <%= f.submit class: 'btn btn-primary' %>
+    </div>
 
-<%= link_to 'Edit', edit_boat_path(@boat) %>
-<%= link_to 'Back', boats_path %>
+
+<% end %>
+<br>
+<br>
+
+<%= link_to 'Back', boats_path, class: 'btn btn-primary' %>

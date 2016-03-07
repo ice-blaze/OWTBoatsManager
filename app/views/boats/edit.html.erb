@@ -1,18 +1,16 @@
 <h1>Change boat name</h1>
 
-<%= form_for :boat, url: boat_path(@boat), method: :patch do |f| %>
+<%= form_for :boat, url: boat_path(@boat),html: {class: 'form-horizontal'}, method: :patch do |f| %>
 
     <%= render 'shared/errors', main_object: @boat  %>
 
-    <p>
-      <%= f.label :name %><br>
-      <%= f.text_field :name%>
-    </p>
+    <div class="form-inline">
+      <%= f.text_field :name, class: 'form-control', placeholder: 'update the name' %>
+      <%= f.submit class: 'btn btn-primary' %>
+    </div>
 
-    <p>
-      <%= f.submit %>
-    </p>
 
 <% end %>
 
-<%= link_to 'Back', boats_path %>
+<br>
+<%= link_to 'Back', boats_path, class: 'btn btn-primary'%>
