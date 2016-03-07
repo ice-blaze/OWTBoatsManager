@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
+
   resources :boats do
     resources :goods
   end
 
   get 'welcome/index'
 
-  root 'boats#index'
+  root to: 'boats#index'
 
-
+  devise_for :users, controllers: { sessions: "users/sessions" }
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -9,6 +9,10 @@
 <body>
 
 <div class="container">
+  <% if user_signed_in? %>
+    <%= link_to('Signout', destroy_user_session_path, :method => :delete, class: 'btn btn-default') %>
+  <% end %>
+
   <%= yield %>
 </div>
 
