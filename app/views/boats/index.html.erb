@@ -12,7 +12,7 @@
   <% @boats.each do |boat| %>
       <tr>
         <td><%= boat.name %></td>
-        <td><%= 'goods...' %></td>
+        <td><%= (boat.goods.map { |a| a.name}).to_sentence %></td>
         <td><%= link_to 'Show', boat_path(boat) %></td>
         <td><%= link_to 'Edit', edit_boat_path(boat) %></td>
         <td><%= link_to 'Destroy', boat_path(boat),
